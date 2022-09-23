@@ -1,18 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <NoteHeader />
+    <main class="note">
+      <NoteNav :note="note"/>
+      <NoteInput />
+    </main>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import Vuex from 'vuex'
+import NoteNav from './components/NoteNav.vue'
+import NoteInput from './components/NoteInput.vue'
+import NoteHeader from './components/NoteHeader.vue'
 
 export default Vue.extend({
   name: 'App',
+  data () {
+    return {
+      note: []
+    }
+  },
   components: {
-    HelloWorld
+    NoteHeader,
+    NoteNav,
+    NoteInput
   }
 })
 </script>
@@ -25,5 +38,10 @@ export default Vue.extend({
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.note {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding: 50px 0px;
 }
 </style>

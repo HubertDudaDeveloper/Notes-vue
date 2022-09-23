@@ -5,6 +5,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    currentKey: '0',
+    note: [
+      { id: '0', title: '', content: '' }
+    ]
   },
   getters: {
   },
