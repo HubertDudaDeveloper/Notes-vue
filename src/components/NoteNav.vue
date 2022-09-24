@@ -1,8 +1,6 @@
 <template>
     <div class="nav">
-        <ul>
-            <li v-for="(item, index) in $store.state.note" :key="index"><button @click="keySelect(index)">{{ item.title }}</button></li>
-        </ul>
+          <button v-for="(item, index) in $store.state.note" :key="index" @click="keySelect(index)">{{ item.title }}</button>
     </div>
 </template>
 <script>
@@ -20,5 +18,4 @@ export default Vue.extend({
 
 </script>
 <style>
-
 </style>

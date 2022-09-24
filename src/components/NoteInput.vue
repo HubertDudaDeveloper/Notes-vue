@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <input placeholder="Tytuł" v-model="$store.state.note[$store.state.currentKey].title">
-        <textarea placeholder="Notatka" v-model="$store.state.note[$store.state.currentKey].content"></textarea>
+        <input class="input" placeholder="Tytuł" v-model="$store.state.note[$store.state.currentKey].title">
+        <textarea class="input" placeholder="Notatka" v-model="$store.state.note[$store.state.currentKey].content"></textarea>
     </div>
 </template>
 <script>
@@ -18,8 +18,9 @@ export default Vue.extend({
     display: grid;
     grid-template-rows: 1fr 10fr;
     gap: 50px;
-    input {
-        padding: 20px
+    .input {
+        padding: 20px;
+        border-radius: 25px;
     }
 }
 </style>

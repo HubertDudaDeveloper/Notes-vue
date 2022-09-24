@@ -28,6 +28,12 @@ export default Vue.extend({
   computed: {
     notes () {
       return this.$store.state.note
+    },
+    title () {
+      return this.$store.state.note[this.$store.state.currentKey].title
+    },
+    content () {
+      return this.$store.state.note[this.$store.state.currentKey].content
     }
   },
   mounted () {
@@ -37,24 +43,51 @@ export default Vue.extend({
   },
   watch: {
     notes (newNotes, oldNotes) {
-      localStorage.notes = JSON.stringify(newNotes)
+      localStorage.notes = JSON.stringify(this.$store.state.note)
+    },
+    title (newNotes, oldNotes) {
+      localStorage.notes = JSON.stringify(this.$store.state.note)
+    },
+    content (newNotes, oldNotes) {
+      localStorage.notes = JSON.stringify(this.$store.state.note)
     }
   }
 })
 </script>
 
 <style lang="scss">
+html {
+  background-color: #1f1f25;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
+  font-size: 1.25em;
   margin-top: 60px;
 }
 .note {
   display: grid;
-  grid-template-columns: 1fr 3fr;
   padding: 50px 0px;
 }
+button {
+    all: unset;
+    width: 50%;
+    border: 2px rgb(28, 183, 103) solid;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 5px;
+    cursor: pointer;
+    &:hover {
+      background:rgb(28, 183, 103);
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    .note {
+      grid-template-columns: 1fr 3fr;
+    }
+  }
 </style>
