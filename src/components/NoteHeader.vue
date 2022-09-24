@@ -10,13 +10,9 @@ import Vuex from 'vuex'
 
 export default Vue.extend({
   name: 'NoteHeader',
-  data () {
-    return {
-    }
-  },
   methods: {
     createNote () {
-      const note = { id: '', title: '', content: '' }
+      const note = { id: '', title: 'Nowa Notatka', content: '' }
       this.$store.state.note.push(note)
     }
   }

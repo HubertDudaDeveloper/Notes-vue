@@ -9,16 +9,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 export default Vue.extend({
-  name: 'NoteInput',
-  prop: {
-    key: ''
-  },
-  data () {
-    return {
-      title: '',
-      content: ''
-    }
-  }
+  name: 'NoteInput'
 })
 
 </script>

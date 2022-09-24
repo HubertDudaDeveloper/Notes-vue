@@ -15,10 +15,6 @@ export default Vue.extend({
     keySelect (key) {
       this.$store.state.currentKey = key
     }
-  },
-  data () {
-    return {
-    }
   }
 })
 

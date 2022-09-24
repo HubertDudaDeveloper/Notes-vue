@@ -15,17 +15,30 @@ import NoteNav from './components/NoteNav.vue'
 import NoteInput from './components/NoteInput.vue'
 import NoteHeader from './components/NoteHeader.vue'
 
+// this.$store.state.note[this.$store.state.currentKey].title
+//      localStorage.notes = JSON.stringify(newNotes)
+
 export default Vue.extend({
   name: 'App',
-  data () {
-    return {
-      note: []
-    }
-  },
   components: {
     NoteHeader,
     NoteNav,
     NoteInput
+  },
+  computed: {
+    notes () {
+      return this.$store.state.note
+    }
+  },
+  mounted () {
+    if (localStorage.notes) {
+      this.$store.state.note = JSON.parse(localStorage.notes)
+    }
+  },
+  watch: {
+    notes (newNotes, oldNotes) {
+      localStorage.notes = JSON.stringify(newNotes)
+    }
   }
 })
 </script>
